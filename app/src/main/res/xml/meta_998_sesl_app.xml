@@ -2,11 +2,10 @@
 <ThemeMetaData
     FormatVersion="1.3"
     GuideVersion="1.4">
-    <!--TODO: change packageName and name-->
     <AppMetaData
-        Name="template-java"
+        Name="Notifer"
         TargetApi="21"
-        TargetPackageName="oui.template.java"
+        TargetPackageName="de.dlyt.yanndroid.notifer"
         VersionCode="1"
         VersionName="">
         <Include RefName="SESL" />

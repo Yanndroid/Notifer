@@ -1,4 +1,4 @@
-package oui.template.java;
+package de.dlyt.yanndroid.notifer;
 
 import android.os.Bundle;
 

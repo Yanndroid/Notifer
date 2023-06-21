@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'oui.template.java' /*TODO: change packageName*/
+    namespace 'de.dlyt.yanndroid.notifer'
     compileSdk 33
 
     defaultConfig {
-        applicationId "oui.template.java" /*TODO: change packageName*/
+        applicationId "de.dlyt.yanndroid.notifer"
         minSdk 26
         targetSdk 33
         versionCode 1
@@ -43,10 +43,9 @@ configurations.all {
 
 dependencies {
     implementation 'io.github.oneuiproject:design:1.2.3'
-    implementation 'io.github.oneuiproject:icons:1.0.1'
-    implementation 'io.github.oneuiproject.sesl:appcompat:1.3.0'
-    implementation 'io.github.oneuiproject.sesl:material:1.4.0'
-    implementation 'io.github.oneuiproject.sesl:recyclerview:1.3.0'
+    implementation 'io.github.oneuiproject:icons:1.1.0'
+    implementation 'io.github.oneuiproject.sesl:appcompat:1.4.0'
+    implementation 'io.github.oneuiproject.sesl:material:1.5.0'
+    implementation 'io.github.oneuiproject.sesl:recyclerview:1.4.0'
     implementation 'io.github.oneuiproject.sesl:preference:1.1.0'
-    /*TODO: add/update/remove libraries*/
 }

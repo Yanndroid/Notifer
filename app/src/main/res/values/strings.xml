@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">template-java</string> <!--TODO: change name-->
+    <string name="app_name">Notifer</string>
+
+    <string name="github">GitHub</string>
+    <string name="donate">Donate</string>
 </resources>

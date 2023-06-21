@@ -14,5 +14,5 @@ dependencyResolutionManagement {
         mavenLocal()
     }
 }
-rootProject.name = "template-java" /*TODO: change name*/
+rootProject.name = "Notifer"
 include ':app'
