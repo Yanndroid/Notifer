@@ -5,3 +5,5 @@ This app will transfer notifications from selected apps on your phone to your Ht
 Like all my apps, it has the OneUI design thanks to our [libraries](https://github.com/OneUIProject).
 
 If this app is installed as a system app, it will also show up in the system notification settings.
+
+<img loading="lazy" src="readme-res/screenshot_1.jpg" height="350"/> <img loading="lazy" src="readme-res/screenshot_2.jpg" height="350"/> <img loading="lazy" src="readme-res/screenshot_3.jpg" height="350"/> <img loading="lazy" src="readme-res/screenshot_4.jpg" height="350"/> <img loading="lazy" src="readme-res/screenshot_5.jpg" height="350"/> <img loading="lazy" src="readme-res/screenshot_6.jpg" height="350"/> <img loading="lazy" src="readme-res/screenshot_7.jpg" height="350"/>
