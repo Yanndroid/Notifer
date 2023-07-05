@@ -1,6 +1,56 @@
 <resources>
     <string name="app_name">Notifer</string>
+    <string name="app_summary">Transfer notifications to HTTP servers.</string>
 
-    <string name="github">GitHub</string>
-    <string name="donate">Donate</string>
+    <string name="search">Search</string>
+    <string name="no_results">No results found</string>
+
+    <!-- Main -->
+    <string name="main_notifications">Notifications</string>
+    <string name="main_notification_access">Notification access</string>
+    <string name="main_sounds_and_vibration">Sounds and vibration</string>
+
+    <!-- Preferences -->
+    <string name="preference_noti_access_tip_key" translatable="false">noti_access_tip</string>
+    <string name="preference_noti_access_tip_title">Notification access</string>
+    <string name="preference_noti_access_tip_summary">Notification access is needed. Click to open Settings.</string>
+    <string name="preference_tip_space_key" translatable="false">tip_space</string>
+    <string name="preference_service_enabled_key" translatable="false">service_enabled</string>
+    <string name="preference_main_settings_title">Settings</string>
+    <string name="preference_servers_title">Servers</string>
+    <string name="preference_servers_summary">Http servers to which notifications should be sent.</string>
+    <string name="preference_apps_title">Apps</string>
+    <string name="preference_apps_summary">Apps whose notifications should be forwarded.</string>
+    <string name="preference_test_key" translatable="false">test_servers</string>
+    <string name="preference_test_title">Test</string>
+    <string name="preference_test_summary">Send a test notification to all the servers.</string>
+    <string name="preference_about_app_key" translatable="false">about_app</string>
+    <string name="preference_about_app_title">About Notifer</string>
+
+    <!-- App Picker -->
+    <string name="picker_loading_apps">Loading apps...</string>
+    <string name="filter">Filter</string>
+    <string name="filter_all">All</string>
+    <string name="filter_apps">Apps</string>
+    <string name="filter_user">User</string>
+    <string name="filter_system">System</string>
+    <string name="filter_state">State</string>
+    <string name="filter_checked">Checked</string>
+    <string name="filter_unchecked">Unchecked</string>
+
+    <!-- Server -->
+    <string name="server_add">Add server</string>
+    <string name="server_edit">Edit server</string>
+    <string name="server_name_hint">Server name</string>
+    <string name="server_url_hint">Server URL</string>
+    <string name="server_color_format">Color format</string>
+    <string name="server_delete">Delete server</string>
+    <string name="delete">Delete</string>
+
+
+    <!-- About -->
+    <string name="about_github">GitHub</string>
+    <string name="about_donate">Donate</string>
+
+
 </resources>

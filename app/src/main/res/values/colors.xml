@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ic_launcher_background">#0072DE</color>
+    <color name="ic_launcher_background">#50E84B</color>
+
+    <color name="sesl_primary_color_light">#50E84B</color>
+    <color name="sesl_primary_dark_color_light">#028B00</color>
+
+    <color name="sesl_primary_color_dark">#21CC38</color>
+    <color name="sesl_primary_dark_color_dark">#21CC38</color>
 </resources>

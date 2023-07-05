@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <dev.oneuiproject.oneui.preference.TipsCardPreference
+        android:key="@string/preference_noti_access_tip_key"
+        android:summary="@string/preference_noti_access_tip_summary"
+        android:title="@string/preference_noti_access_tip_title" />
+
+    <PreferenceCategory android:key="@string/preference_tip_space_key" />
+
+    <dev.oneuiproject.oneui.preference.SwitchBarPreference android:key="@string/preference_service_enabled_key" />
+
+    <PreferenceCategory android:title="@string/preference_main_settings_title">
+
+        <PreferenceScreen
+            android:summary="@string/preference_servers_summary"
+            android:title="@string/preference_servers_title">
+            <intent
+                android:targetClass="de.dlyt.yanndroid.notifer.ServerActivity"
+                android:targetPackage="de.dlyt.yanndroid.notifer" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:summary="@string/preference_apps_summary"
+            android:title="@string/preference_apps_title">
+            <intent
+                android:targetClass="de.dlyt.yanndroid.notifer.AppPickerActivity"
+                android:targetPackage="de.dlyt.yanndroid.notifer" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+
+        <Preference
+            android:key="@string/preference_test_key"
+            android:summary="@string/preference_test_summary"
+            android:title="@string/preference_test_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <Preference
+            android:key="@string/preference_about_app_key"
+            android:title="@string/preference_about_app_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

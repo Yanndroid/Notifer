@@ -7,11 +7,11 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/about_source_code"
         style="@style/OneUI.AppInfoButton"
-        android:text="@string/github" />
+        android:text="@string/about_github" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/about_donate"
         style="@style/OneUI.AppInfoButton"
-        android:text="@string/donate" />
+        android:text="@string/about_donate" />
 
 </dev.oneuiproject.oneui.layout.AppInfoLayout>
