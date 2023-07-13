@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+      
+  <string name="app_summary">Transférez les notifications aux serveurs HTTP.</string>
+      
+  <string name="search">Recherche</string>
+      
+  <string name="no_results">Aucun résultat trouvé</string>
+      
+  <!-- Main -->
+      
+  <string name="main_notifications">Avis</string>
+      
+  <string name="main_notification_access">Accès aux notifications</string>
+      
+  <string name="main_sounds_and_vibration">Sons et vibrations</string>
+      
+  <!-- Preferences -->
+      
+  <string name="preference_noti_access_tip_title">Accès aux notifications</string>
+      
+  <string name="preference_noti_access_tip_summary">L\'accès aux notifications est nécessaire. Cliquez pour ouvrir Paramètres.</string>
+      
+  <string name="preference_main_settings_title">Paramètres</string>
+      
+  <string name="preference_servers_title">Les serveurs</string>
+      
+  <string name="preference_servers_summary">Serveurs HTTP auxquels les notifications doivent être envoyées.</string>
+      
+  <string name="preference_apps_title">applications</string>
+      
+  <string name="preference_apps_summary">Applications dont les notifications doivent être transférées.</string>
+      
+  <string name="preference_test_title">Test</string>
+      
+  <string name="preference_test_summary">Envoyez une notification de test à tous les serveurs.</string>
+      
+  <string name="preference_about_app_title">À propos de Notifer</string>
+      
+  <!-- App Picker -->
+      
+  <string name="picker_loading_apps">Chargement des applications...</string>
+      
+  <string name="filter">Filtre</string>
+      
+  <string name="filter_all">Tous</string>
+      
+  <string name="filter_apps">applications</string>
+      
+  <string name="filter_user">Utilisateur</string>
+      
+  <string name="filter_system">Système</string>
+      
+  <string name="filter_state">État</string>
+      
+  <string name="filter_checked">Vérifié</string>
+      
+  <string name="filter_unchecked">Décoché</string>
+      
+  <!-- Server -->
+      
+  <string name="server_add">Ajouter un serveur</string>
+      
+  <string name="server_edit">Modifier le serveur</string>
+      
+  <string name="server_name_hint">Nom du serveur</string>
+      
+  <string name="server_url_hint">URL du serveur</string>
+      
+  <string name="server_color_format">Format couleur</string>
+      
+  <string name="server_delete">Supprimer le serveur</string>
+      
+  <string name="delete">Supprimer</string>
+      
+  <!-- About -->
+      
+  <string name="about_github">GitHub</string>
+      
+  <string name="about_donate">Parrainer</string>
+  
+</resources>

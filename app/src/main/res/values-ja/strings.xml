@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+      
+  <string name="app_summary">通知を HTTP サーバーに転送します。</string>
+      
+  <string name="search">検索</string>
+      
+  <string name="no_results">結果が見つかりません</string>
+      
+  <!-- Main -->
+      
+  <string name="main_notifications">通知</string>
+      
+  <string name="main_notification_access">通知へのアクセス</string>
+      
+  <string name="main_sounds_and_vibration">音と振動</string>
+      
+  <!-- Preferences -->
+      
+  <string name="preference_noti_access_tip_title">通知へのアクセス</string>
+      
+  <string name="preference_noti_access_tip_summary">通知へのアクセスが必要です。クリックして設定を開きます。</string>
+      
+  <string name="preference_main_settings_title">設定</string>
+      
+  <string name="preference_servers_title">サーバー</string>
+      
+  <string name="preference_servers_summary">通知の送信先となる HTTP サーバー。</string>
+      
+  <string name="preference_apps_title">アプリ</string>
+      
+  <string name="preference_apps_summary">通知を転送する必要があるアプリ。</string>
+      
+  <string name="preference_test_title">テスト</string>
+      
+  <string name="preference_test_summary">すべてのサーバーにテスト通知を送信します。</string>
+      
+  <string name="preference_about_app_title">通知者について</string>
+      
+  <!-- App Picker -->
+      
+  <string name="picker_loading_apps">アプリを読み込んでいます...</string>
+      
+  <string name="filter">フィルター</string>
+      
+  <string name="filter_all">全て</string>
+      
+  <string name="filter_apps">アプリ</string>
+      
+  <string name="filter_user">ユーザー</string>
+      
+  <string name="filter_system">システム</string>
+      
+  <string name="filter_state">州</string>
+      
+  <string name="filter_checked">チェック済み</string>
+      
+  <string name="filter_unchecked">チェックなし</string>
+      
+  <!-- Server -->
+      
+  <string name="server_add">サーバーの追加</string>
+      
+  <string name="server_edit">サーバーの編集</string>
+      
+  <string name="server_name_hint">サーバーの名前</string>
+      
+  <string name="server_url_hint">サーバー URL</string>
+      
+  <string name="server_color_format">カラーフォーマット</string>
+      
+  <string name="server_delete">サーバーの削除</string>
+      
+  <string name="delete">消去</string>
+      
+  <!-- About -->
+      
+  <string name="about_github">GitHub</string>
+      
+  <string name="about_donate">スポンサー</string>
+  
+</resources>

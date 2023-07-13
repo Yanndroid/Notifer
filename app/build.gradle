@@ -2,6 +2,15 @@ plugins {
     id 'com.android.application'
 }
 
+def locales = file('src/main/res').listFiles(new FilenameFilter() {
+    @Override
+    boolean accept(File dir, String name) {
+        return name.matches('values-.*') && new File(dir, name).list().contains('strings.xml')
+    }
+}).collect { it.name.substring(7) }
+
+print("Locales: " + locales.join(', '))
+
 android {
     namespace 'de.dlyt.yanndroid.notifer'
     compileSdk 33
@@ -13,7 +22,7 @@ android {
         versionCode 1
         versionName "1.0.0"
 
-        resConfigs 'en' /*TODO: add supported languages*/
+        resConfigs locales
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -42,7 +51,7 @@ configurations.all {
 }
 
 dependencies {
-    implementation 'io.github.oneuiproject:design:1.2.3'
+    implementation 'io.github.oneuiproject:design:1.2.5'
     implementation 'io.github.oneuiproject:icons:1.1.0'
     implementation 'io.github.oneuiproject.sesl:appcompat:1.4.0'
     implementation 'io.github.oneuiproject.sesl:material:1.5.0'
@@ -50,7 +59,7 @@ dependencies {
     implementation 'io.github.oneuiproject.sesl:preference:1.1.0'
     implementation("io.github.oneuiproject.sesl:picker-color:1.1.0")
 
-    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.10'
     implementation 'androidx.palette:palette:1.0.0'
     implementation 'com.google.android.play:app-update:2.1.0'
 

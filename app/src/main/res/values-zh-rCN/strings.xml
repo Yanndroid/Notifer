@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+      
+  <string name="app_summary">将通知传输到 HTTP 服务器。</string>
+      
+  <string name="search">搜索</string>
+      
+  <string name="no_results">未找到结果</string>
+      
+  <!-- Main -->
+      
+  <string name="main_notifications">通知</string>
+      
+  <string name="main_notification_access">通知访问</string>
+      
+  <string name="main_sounds_and_vibration">声音和振动</string>
+      
+  <!-- Preferences -->
+      
+  <string name="preference_noti_access_tip_title">通知访问</string>
+      
+  <string name="preference_noti_access_tip_summary">需要通知访问权限。单击以打开“设置”。</string>
+      
+  <string name="preference_main_settings_title">设置</string>
+      
+  <string name="preference_servers_title">服务器</string>
+      
+  <string name="preference_servers_summary">应向其发送通知的 HTTP 服务器。</string>
+      
+  <string name="preference_apps_title">应用</string>
+      
+  <string name="preference_apps_summary">应转发其通知的应用程序。</string>
+      
+  <string name="preference_test_title">测试</string>
+      
+  <string name="preference_test_summary">向所有服务器发送测试通知。</string>
+      
+  <string name="preference_about_app_title">关于诺蒂弗</string>
+      
+  <!-- App Picker -->
+      
+  <string name="picker_loading_apps">正在加载应用程序...</string>
+      
+  <string name="filter">过滤</string>
+      
+  <string name="filter_all">全部</string>
+      
+  <string name="filter_apps">应用</string>
+      
+  <string name="filter_user">用户</string>
+      
+  <string name="filter_system">系统</string>
+      
+  <string name="filter_state">状态</string>
+      
+  <string name="filter_checked">已检查</string>
+      
+  <string name="filter_unchecked">未选中</string>
+      
+  <!-- Server -->
+      
+  <string name="server_add">添加服务器</string>
+      
+  <string name="server_edit">编辑服务器</string>
+      
+  <string name="server_name_hint">服务器名称</string>
+      
+  <string name="server_url_hint">服务器地址</string>
+      
+  <string name="server_color_format">颜色格式</string>
+      
+  <string name="server_delete">删除服务器</string>
+      
+  <string name="delete">删除</string>
+      
+  <!-- About -->
+      
+  <string name="about_github">GitHub</string>
+      
+  <string name="about_donate">赞助</string>
+  
+</resources>

@@ -32,6 +32,8 @@ import dev.oneuiproject.oneui.utils.PreferenceUtils;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String SETTINGS_ACTION = "com.android.settings.action.IA_SETTINGS";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         ToolbarLayout toolbarLayout = findViewById(R.id.toolbar_layout);
 
-        if ("com.android.settings.action.IA_SETTINGS".equals(getIntent().getAction()))
+        if (SETTINGS_ACTION.equals(getIntent().getAction()))
             toolbarLayout.setNavigationButtonAsBack();
 
         if (savedInstanceState == null)

@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Notifer</string>
+    <string name="app_name" translatable="false">Notifer</string>
     <string name="app_summary">Transfer notifications to HTTP servers.</string>
 
     <string name="search">Search</string>
-    <string name="no_results">No results found</string>
+    <string name="no_results">Nothing here</string>
 
     <!-- Main -->
     <string name="main_notifications">Notifications</string>
@@ -49,8 +49,8 @@
 
 
     <!-- About -->
-    <string name="about_github">GitHub</string>
-    <string name="about_donate">Donate</string>
+    <string name="about_github" translatable="false">GitHub</string>
+    <string name="about_donate">Sponsor</string>
 
 
 </resources>
