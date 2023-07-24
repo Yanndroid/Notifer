@@ -1,19 +1,15 @@
 package de.dlyt.yanndroid.notifer;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Html;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,13 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.palette.graphics.Palette;
 import androidx.picker3.app.SeslColorPickerDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,44 +30,27 @@ import java.util.List;
 import de.dlyt.yanndroid.notifer.dialog.FilterDialog;
 import de.dlyt.yanndroid.notifer.recyclerview.FilterAdapter;
 import de.dlyt.yanndroid.notifer.recyclerview.ItemDecoration;
-import de.dlyt.yanndroid.notifer.utils.Preferences;
+import de.dlyt.yanndroid.notifer.recyclerview.ListActivity;
 import dev.oneuiproject.oneui.dialog.ProgressDialog;
-import dev.oneuiproject.oneui.layout.ToolbarLayout;
 
-public class AppPickerActivity extends AppCompatActivity {
+public class AppPickerActivity extends ListActivity<AppPickerActivity.AppsAdapter.ViewHolder> {
 
     public enum Filter {ALL, TRUE, FALSE}
 
-    private Context mContext;
-    private Preferences mPreferences;
     private PackageManager mPackageManager;
-
-    private ToolbarLayout mToolbarLayout;
-    private RecyclerView mRecyclerView;
-    private AppsAdapter mListAdapter;
 
     private List<AppInfo> mAppList = new ArrayList<>();
     private HashMap<String, Integer> mEnabledPackages = new HashMap<>();
 
-    private String mHighlightColor;
-    private String mSearchText;
     private Filter mFilterUser = Filter.TRUE;
     private Filter mFilterChecked = Filter.ALL;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle(R.string.preference_apps_title);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
-        mContext = this;
-        mToolbarLayout = findViewById(R.id.toolbar_layout);
-        mRecyclerView = findViewById(R.id.app_list);
 
-        mPreferences = new Preferences(mContext);
         mPackageManager = getPackageManager();
-
-        initHighlightColor();
-        initToolbar();
         loadApps();
     }
 
@@ -93,52 +68,11 @@ public class AppPickerActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                mToolbarLayout.showSearchMode();
-                return true;
-            case R.id.action_filter:
-                showFilterDialog();
-                return true;
+        if (item.getItemId() == R.id.action_filter) {
+            showFilterDialog();
+            return true;
         }
-        return false;
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        mToolbarLayout.onSearchModeVoiceInputResult(intent);
-    }
-
-    private void initHighlightColor() {
-        TypedValue value = new TypedValue();
-        getTheme().resolveAttribute(androidx.appcompat.R.attr.colorPrimary, value, true);
-        mHighlightColor = "#" + Integer.toHexString(Color.red(value.data)) + Integer.toHexString(Color.green(value.data)) + Integer.toHexString(Color.blue(value.data));
-    }
-
-    private void initToolbar() {
-        mToolbarLayout.setTitle(getString(R.string.preference_apps_title));
-        mToolbarLayout.setNavigationButtonAsBack();
-        mToolbarLayout.setSearchModeListener(new ToolbarLayout.SearchModeListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                if (mListAdapter != null) {
-                    mSearchText = newText;
-                    mListAdapter.applyFilter();
-                }
-                return true;
-            }
-
-            @Override
-            public void onSearchModeToggle(SearchView searchView, boolean visible) {
-
-            }
-        });
+        return super.onOptionsItemSelected(item);
     }
 
     private void loadApps() {
@@ -164,7 +98,7 @@ public class AppPickerActivity extends AppCompatActivity {
             handler.post(() -> progressDialog.setMax(total));
 
             for (int i = 0; i < total; i++) {
-                mAppList.add(new AppInfo(mContext, installedPackages.get(i)));
+                mAppList.add(new AppInfo(installedPackages.get(i)));
 
                 int progress = i;
                 handler.post(() -> progressDialog.setProgress(progress));
@@ -172,20 +106,10 @@ public class AppPickerActivity extends AppCompatActivity {
 
             handler.post(() -> {
                 progressDialog.dismiss();
+                mListAdapter = new AppsAdapter(mContext, mAppList);
                 initRecycler();
             });
         }).start();
-    }
-
-    private void initRecycler() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        mRecyclerView.setAdapter(mListAdapter = new AppsAdapter(mContext, mAppList));
-        mRecyclerView.addItemDecoration(new ItemDecoration<AppsAdapter.ViewHolder>(mContext));
-
-        mRecyclerView.seslSetFillBottomEnabled(true);
-        mRecyclerView.seslSetFastScrollerEnabled(true);
-        mRecyclerView.seslSetGoToTopEnabled(true);
-        mRecyclerView.seslSetSmoothScrollEnabled(true);
     }
 
     private void showFilterDialog() {
@@ -205,25 +129,24 @@ public class AppPickerActivity extends AppCompatActivity {
         public int color, def_color = 0;
         public int[] iconColors = new int[0];
 
-        public AppInfo(Context context, PackageInfo packageInfo) {
-            PackageManager packageManager = context.getPackageManager();
+        public AppInfo(PackageInfo packageInfo) {
             this.packageName = packageInfo.packageName;
-            this.label = packageManager.getApplicationLabel(packageInfo.applicationInfo).toString();
-            this.icon = packageManager.getApplicationIcon(packageInfo.applicationInfo);
+            this.label = mPackageManager.getApplicationLabel(packageInfo.applicationInfo).toString();
+            this.icon = mPackageManager.getApplicationIcon(packageInfo.applicationInfo);
             this.checked = mEnabledPackages.containsKey(this.packageName);
             this.userApp = ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0);
 
             if (this.checked) this.color = mEnabledPackages.get(this.packageName);
         }
 
-        public int getDefaultColor(Context context) {
+        public int getDefaultColor() {
             if (this.def_color != 0) return this.def_color;
-            return this.def_color = loadColorPalette(context);
+            return this.def_color = loadColorPalette();
         }
 
-        private int loadColorPalette(Context context) {
+        private int loadColorPalette() {
             try {
-                Drawable appIconDrawable = context.getPackageManager().getApplicationIcon(this.packageName);
+                Drawable appIconDrawable = mPackageManager.getApplicationIcon(this.packageName);
                 Bitmap appIconBitmap = Bitmap.createBitmap(appIconDrawable.getIntrinsicWidth(), appIconDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
                 Canvas canvas = new Canvas(appIconBitmap);
                 appIconDrawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -275,8 +198,7 @@ public class AppPickerActivity extends AppCompatActivity {
 
         @Override
         public void onListSizeChanged(int size) {
-            mRecyclerView.setVisibility(size == 0 ? View.GONE : View.VISIBLE);
-            mToolbarLayout.setExpandedSubtitle(String.valueOf(size));
+            AppPickerActivity.this.onListSizeChanged(size);
         }
 
         @NonNull
@@ -300,7 +222,7 @@ public class AppPickerActivity extends AppCompatActivity {
                 appInfo.checked = isChecked;
 
                 if (isChecked) {
-                    mEnabledPackages.put(appInfo.packageName, appInfo.color = appInfo.getDefaultColor(mContext));
+                    mEnabledPackages.put(appInfo.packageName, appInfo.color = appInfo.getDefaultColor());
                 } else {
                     mEnabledPackages.remove(appInfo.packageName);
                 }
@@ -312,27 +234,17 @@ public class AppPickerActivity extends AppCompatActivity {
         private void setListItemText(ViewHolder holder, AppInfo appInfo) {
             if (holder.appTitle == null || holder.appPackage == null) return;
             if (mSearchText != null && !mSearchText.isEmpty()) {
-                highlightSearch(holder.appTitle, appInfo.label);
-                highlightSearch(holder.appPackage, appInfo.packageName);
+                highlightText(holder.appTitle, appInfo.label);
+                highlightText(holder.appPackage, appInfo.packageName);
             } else {
                 holder.appTitle.setText(appInfo.label);
                 holder.appPackage.setText(appInfo.packageName);
             }
         }
 
-        private void highlightSearch(TextView textView, String text) {
-            int index = text.toLowerCase().indexOf(mSearchText.toLowerCase());
-            if (index == -1) {
-                textView.setText(text);
-            } else {
-                String match = text.substring(index, index + mSearchText.length());
-                textView.setText(Html.fromHtml(text.replace(match, "<b><font color=\"" + mHighlightColor + "\">" + match + "</font></b>"), Html.FROM_HTML_MODE_LEGACY));
-            }
-        }
-
         private void initColorPicker(ViewHolder holder, AppInfo appInfo) {
             if (appInfo.checked) {
-                if (appInfo.color == 0) appInfo.color = appInfo.getDefaultColor(mContext);
+                if (appInfo.color == 0) appInfo.color = appInfo.getDefaultColor();
                 holder.appColor.setVisibility(View.VISIBLE);
 
                 GradientDrawable drawable = (GradientDrawable) mContext.getDrawable(dev.oneuiproject.oneui.design.R.drawable.oui_preference_color_picker_preview).mutate();
@@ -340,7 +252,7 @@ public class AppPickerActivity extends AppCompatActivity {
                 holder.appColor.setImageDrawable(drawable);
 
                 holder.appColor.setOnClickListener(v -> {
-                    appInfo.getDefaultColor(mContext);
+                    appInfo.getDefaultColor();
                     SeslColorPickerDialog dialog = new SeslColorPickerDialog(mContext, color -> {
                         mEnabledPackages.put(appInfo.packageName, color);
                         appInfo.color = color;

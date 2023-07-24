@@ -1,11 +1,6 @@
 package de.dlyt.yanndroid.notifer;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Html;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,10 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,39 +18,21 @@ import java.util.List;
 import de.dlyt.yanndroid.notifer.dialog.ServerEditDialog;
 import de.dlyt.yanndroid.notifer.recyclerview.FilterAdapter;
 import de.dlyt.yanndroid.notifer.recyclerview.ItemDecoration;
+import de.dlyt.yanndroid.notifer.recyclerview.ListActivity;
 import de.dlyt.yanndroid.notifer.utils.Preferences;
-import dev.oneuiproject.oneui.layout.ToolbarLayout;
 import dev.oneuiproject.oneui.utils.DialogUtils;
 
-public class ServerActivity extends AppCompatActivity {
-
-    private Context mContext;
-    private Preferences mPreferences;
-
-    private ToolbarLayout mToolbarLayout;
-    private RecyclerView mRecyclerView;
-    private ServerAdapter mListAdapter;
+public class ServerActivity extends ListActivity<ServerActivity.ServerAdapter.ViewHolder> {
 
     private List<Preferences.ServerInfo> mServerList = new ArrayList<>();
 
-    private String mHighlightColor;
-    private String mSearchText;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle(R.string.preference_servers_title);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
-        mContext = this;
-        mToolbarLayout = findViewById(R.id.toolbar_layout);
-        mRecyclerView = findViewById(R.id.app_list);
-
-        mPreferences = new Preferences(mContext);
 
         mServerList = mPreferences.getServers(null);
-
-        initHighlightColor();
-        initToolbar();
+        mListAdapter = new ServerAdapter(mServerList);
         initRecycler();
     }
 
@@ -77,63 +50,11 @@ public class ServerActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                mToolbarLayout.showSearchMode();
-                return true;
-            case R.id.action_new:
-                showEditServerDialog(null);
-                return true;
+        if (item.getItemId() == R.id.action_new) {
+            showEditServerDialog(null);
+            return true;
         }
-        return false;
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        mToolbarLayout.onSearchModeVoiceInputResult(intent);
-    }
-
-    private void initHighlightColor() {
-        TypedValue value = new TypedValue();
-        getTheme().resolveAttribute(androidx.appcompat.R.attr.colorPrimary, value, true);
-        mHighlightColor = "#" + Integer.toHexString(Color.red(value.data)) + Integer.toHexString(Color.green(value.data)) + Integer.toHexString(Color.blue(value.data));
-    }
-
-    private void initToolbar() {
-        mToolbarLayout.setTitle(getString(R.string.preference_servers_title));
-        mToolbarLayout.setNavigationButtonAsBack();
-        mToolbarLayout.setSearchModeListener(new ToolbarLayout.SearchModeListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                if (mListAdapter != null) {
-                    mSearchText = newText;
-                    mListAdapter.applyFilter();
-                }
-                return true;
-            }
-
-            @Override
-            public void onSearchModeToggle(SearchView searchView, boolean visible) {
-
-            }
-        });
-    }
-
-    private void initRecycler() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        mRecyclerView.setAdapter(mListAdapter = new ServerAdapter(mServerList));
-        mRecyclerView.addItemDecoration(new ItemDecoration<ServerAdapter.ViewHolder>(mContext));
-
-        mRecyclerView.seslSetFillBottomEnabled(true);
-        mRecyclerView.seslSetFastScrollerEnabled(true);
-        mRecyclerView.seslSetGoToTopEnabled(true);
-        mRecyclerView.seslSetSmoothScrollEnabled(true);
+        return super.onOptionsItemSelected(item);
     }
 
     private void showEditServerDialog(Preferences.ServerInfo serverInfo) {
@@ -178,8 +99,7 @@ public class ServerActivity extends AppCompatActivity {
 
         @Override
         public void onListSizeChanged(int size) {
-            mRecyclerView.setVisibility(size == 0 ? View.GONE : View.VISIBLE);
-            mToolbarLayout.setExpandedSubtitle(String.valueOf(size));
+            ServerActivity.this.onListSizeChanged(size);
         }
 
         @NonNull
@@ -210,21 +130,11 @@ public class ServerActivity extends AppCompatActivity {
         private void setListItemText(ViewHolder holder, Preferences.ServerInfo serverInfo) {
             if (holder.serverName == null || holder.serverUrl == null) return;
             if (mSearchText != null && !mSearchText.isEmpty()) {
-                highlightSearch(holder.serverName, serverInfo.name);
-                highlightSearch(holder.serverUrl, serverInfo.url);
+                highlightText(holder.serverName, serverInfo.name);
+                highlightText(holder.serverUrl, serverInfo.url);
             } else {
                 holder.serverName.setText(serverInfo.name);
                 holder.serverUrl.setText(serverInfo.url);
-            }
-        }
-
-        private void highlightSearch(TextView textView, String text) {
-            int index = text.toLowerCase().indexOf(mSearchText.toLowerCase());
-            if (index == -1) {
-                textView.setText(text);
-            } else {
-                String match = text.substring(index, index + mSearchText.length());
-                textView.setText(Html.fromHtml(text.replace(match, "<b><font color=\"" + mHighlightColor + "\">" + match + "</font></b>"), Html.FROM_HTML_MODE_LEGACY));
             }
         }
 
