@@ -24,8 +24,6 @@
     <string name="preference_test_key" translatable="false">test_servers</string>
     <string name="preference_test_title">Test</string>
     <string name="preference_test_summary">Send a test notification to all the servers.</string>
-    <string name="preference_about_app_key" translatable="false">about_app</string>
-    <string name="preference_about_app_title">About Notifer</string>
 
     <!-- App Picker -->
     <string name="picker_loading_apps">Loading apps...</string>
@@ -50,7 +48,7 @@
 
     <!-- About -->
     <string name="about_github" translatable="false">GitHub</string>
-    <string name="about_donate">Sponsor</string>
+    <string name="about_sponsor">Sponsor</string>
 
 
 </resources>

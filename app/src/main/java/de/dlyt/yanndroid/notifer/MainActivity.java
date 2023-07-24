@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-
-import com.google.android.play.core.appupdate.AppUpdateInfo;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +21,6 @@ import java.util.List;
 
 import de.dlyt.yanndroid.notifer.utils.ColorUtil;
 import de.dlyt.yanndroid.notifer.utils.HttpRequest;
-import de.dlyt.yanndroid.notifer.utils.PlayUpdater;
 import de.dlyt.yanndroid.notifer.utils.Preferences;
 import dev.oneuiproject.oneui.layout.ToolbarLayout;
 import dev.oneuiproject.oneui.preference.SwitchBarPreference;
@@ -46,6 +45,24 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null)
             getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, new SettingsFragment()).commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
+        getMenuInflater().inflate(dev.oneuiproject.oneui.design.R.menu.app_info_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == dev.oneuiproject.oneui.design.R.id.menu_app_info) {
+            ActivityUtils.startPopOverActivity(this,
+                    new Intent(this, AboutActivity.class),
+                    null,
+                    ActivityUtils.POP_OVER_POSITION_RIGHT | ActivityUtils.POP_OVER_POSITION_TOP);
+            return true;
+        }
+        return false;
     }
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
@@ -102,22 +119,6 @@ public class MainActivity extends AppCompatActivity {
             test_servers.setOnPreferenceClickListener(preference -> {
                 sendTestNotification();
                 return true;
-            });
-
-            Preference about_app = findPreference(getString(R.string.preference_about_app_key));
-            about_app.setOnPreferenceClickListener(preference -> {
-                ActivityUtils.startPopOverActivity(mContext,
-                        new Intent(mContext, AboutActivity.class),
-                        null,
-                        ActivityUtils.POP_OVER_POSITION_BOTTOM | ActivityUtils.POP_OVER_POSITION_CENTER_HORIZONTAL);
-                return false;
-            });
-
-            new PlayUpdater(mContext).checkUpdate(new PlayUpdater.Callback() {
-                @Override
-                public void updateAvailable(AppUpdateInfo appUpdateInfo) {
-                    about_app.setWidgetLayoutResource(R.layout.sesl_preference_badge);
-                }
             });
         }
 

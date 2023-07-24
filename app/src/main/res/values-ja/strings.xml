@@ -33,9 +33,7 @@
   <string name="preference_test_title">テスト</string>
       
   <string name="preference_test_summary">すべてのサーバーにテスト通知を送信します。</string>
-      
-  <string name="preference_about_app_title">通知者について</string>
-      
+
   <!-- App Picker -->
       
   <string name="picker_loading_apps">アプリを読み込んでいます...</string>
@@ -76,6 +74,6 @@
       
   <string name="about_github">GitHub</string>
       
-  <string name="about_donate">スポンサー</string>
+  <string name="about_sponsor">スポンサー</string>
   
 </resources>

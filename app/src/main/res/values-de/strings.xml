@@ -33,9 +33,7 @@
   <string name="preference_test_title">Prüfen</string>
       
   <string name="preference_test_summary">Senden Sie eine Testbenachrichtigung an alle Server.</string>
-      
-  <string name="preference_about_app_title">Über Notifer</string>
-      
+
   <!-- App Picker -->
       
   <string name="picker_loading_apps">Apps werden geladen...</string>
@@ -76,6 +74,6 @@
       
   <string name="about_github">GitHub</string>
       
-  <string name="about_donate">Sponsor</string>
+  <string name="about_sponsor">Sponsor</string>
   
 </resources>

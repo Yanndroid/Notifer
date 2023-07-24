@@ -33,9 +33,7 @@
   <string name="preference_test_title">测试</string>
       
   <string name="preference_test_summary">向所有服务器发送测试通知。</string>
-      
-  <string name="preference_about_app_title">关于诺蒂弗</string>
-      
+
   <!-- App Picker -->
       
   <string name="picker_loading_apps">正在加载应用程序...</string>
@@ -76,6 +74,6 @@
       
   <string name="about_github">GitHub</string>
       
-  <string name="about_donate">赞助</string>
+  <string name="about_sponsor">赞助</string>
   
 </resources>

@@ -39,10 +39,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory>
-        <Preference
-            android:key="@string/preference_about_app_key"
-            android:title="@string/preference_about_app_title" />
-    </PreferenceCategory>
-
 </PreferenceScreen>

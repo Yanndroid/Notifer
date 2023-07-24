@@ -33,9 +33,7 @@
   <string name="preference_test_title">ทดสอบ</string>
       
   <string name="preference_test_summary">ส่งการแจ้งเตือนการทดสอบไปยังเซิร์ฟเวอร์ทั้งหมด</string>
-      
-  <string name="preference_about_app_title">เกี่ยวกับ Notifer</string>
-      
+
   <!-- App Picker -->
       
   <string name="picker_loading_apps">กำลังโหลดแอป...</string>
@@ -76,6 +74,6 @@
       
   <string name="about_github">GitHub</string>
       
-  <string name="about_donate">สปอนเซอร์</string>
+  <string name="about_sponsor">สปอนเซอร์</string>
   
 </resources>
