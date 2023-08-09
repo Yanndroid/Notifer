@@ -120,7 +120,7 @@ public class AppPickerActivity extends ListActivity<AppPickerActivity.AppsAdapte
         }).show();
     }
 
-    public class AppInfo {
+    public class AppInfo implements Comparable<AppInfo> {
 
         public final String label, packageName;
         public final Drawable icon;
@@ -163,6 +163,11 @@ public class AppPickerActivity extends ListActivity<AppPickerActivity.AppsAdapte
                 return 0;
             }
         }
+
+        @Override
+        public int compareTo(AppInfo o) {
+            return this.label.compareToIgnoreCase(o.label);
+        }
     }
 
     public class AppsAdapter extends FilterAdapter<AppInfo, AppsAdapter.ViewHolder> {
@@ -172,11 +177,6 @@ public class AppPickerActivity extends ListActivity<AppPickerActivity.AppsAdapte
         public AppsAdapter(Context context, List<AppInfo> items) {
             super(AppInfo.class, items);
             mContext = context;
-        }
-
-        @Override
-        public int compareItem(AppInfo item1, AppInfo item2) {
-            return item1.label.compareToIgnoreCase(item2.label);
         }
 
         @Override

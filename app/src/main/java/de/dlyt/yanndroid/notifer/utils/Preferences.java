@@ -19,7 +19,7 @@ public class Preferences {
         void onChange(T value);
     }
 
-    public static class ServerInfo {
+    public static class ServerInfo implements Comparable<ServerInfo> {
         public String name;
         public String url;
         public ColorUtil.ColorFormat colorFormat;
@@ -28,6 +28,11 @@ public class Preferences {
             this.name = name;
             this.url = url;
             this.colorFormat = colorFormat;
+        }
+
+        @Override
+        public int compareTo(ServerInfo o) {
+            return this.name.compareToIgnoreCase(o.name);
         }
     }
 

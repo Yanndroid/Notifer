@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.SortedList;
 
 import java.util.List;
 
-public abstract class FilterAdapter<I, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+public abstract class FilterAdapter<I extends Comparable<I>, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
 
     private final List<I> mItemList;
     private final SortedList<I> mSortedList;
@@ -15,7 +15,7 @@ public abstract class FilterAdapter<I, VH extends RecyclerView.ViewHolder> exten
         public int compare(I o1, I o2) {
             if (o1 == null) return 1;
             if (o2 == null) return -1;
-            return compareItem(o1, o2);
+            return o1.compareTo(o2);
         }
 
         @Override
@@ -51,9 +51,8 @@ public abstract class FilterAdapter<I, VH extends RecyclerView.ViewHolder> exten
         }
     };
 
-    public abstract void onListSizeChanged(int size);
-
-    public abstract int compareItem(I item1, I item2);
+    public void onListSizeChanged(int size) {
+    }
 
     public abstract boolean isSameItemContent(I item1, I item2);
 

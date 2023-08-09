@@ -78,11 +78,6 @@ public class ServerActivity extends ListActivity<ServerActivity.ServerAdapter.Vi
         }
 
         @Override
-        public int compareItem(Preferences.ServerInfo item1, Preferences.ServerInfo item2) {
-            return item1.name.compareToIgnoreCase(item2.name);
-        }
-
-        @Override
         public boolean isSameItemContent(Preferences.ServerInfo item1, Preferences.ServerInfo item2) {
             return item1.name.equals(item2.name);
         }
