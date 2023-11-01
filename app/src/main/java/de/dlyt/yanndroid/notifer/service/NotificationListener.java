@@ -1,6 +1,8 @@
 package de.dlyt.yanndroid.notifer.service;
 
 import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.service.notification.NotificationListenerService;
@@ -22,6 +24,8 @@ public class NotificationListener extends NotificationListenerService {
     private HashMap<String, Integer> mEnabledPackages;
     private List<Preferences.ServerInfo> mServers;
 
+    private NotificationManager mNotificationManager;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -29,6 +33,8 @@ public class NotificationListener extends NotificationListenerService {
 
         mEnabledPackages = mPreferences.getEnabledPackages(enabledPackages -> mEnabledPackages = enabledPackages);
         mServers = mPreferences.getServers(servers -> mServers = servers);
+
+        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
     @Override
@@ -89,7 +95,8 @@ public class NotificationListener extends NotificationListenerService {
                 bundle.getString("android.bigText"),
                 bundle.getBoolean("android.progressIndeterminate"),
                 bundle.getInt("android.progressMax"),
-                bundle.getInt("android.progress")
+                bundle.getInt("android.progress"),
+                mNotificationManager.getCurrentInterruptionFilter()
         );
     }
 

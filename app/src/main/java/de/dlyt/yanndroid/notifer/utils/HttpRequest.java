@@ -29,7 +29,7 @@ public class HttpRequest {
         }).start();
     }
 
-    public static JSONObject makeBody(CharSequence label, String packageName, int id, long time, boolean ongoing, String template, boolean removed, String title, String text, String subText, String titleBig, String textBig, boolean progressIndeterminate, int progressMax, int progress) throws JSONException {
+    public static JSONObject makeBody(CharSequence label, String packageName, int id, long time, boolean ongoing, String template, boolean removed, String title, String text, String subText, String titleBig, String textBig, boolean progressIndeterminate, int progressMax, int progress, int dnd) throws JSONException {
         JSONObject body = new JSONObject();
 
         body.put("label", label);
@@ -47,6 +47,7 @@ public class HttpRequest {
         body.put("progress_indeterminate", progressIndeterminate);
         body.put("progress_max", progressMax);
         body.put("progress", progress);
+        body.put("dnd", dnd);
 
         return body;
     }

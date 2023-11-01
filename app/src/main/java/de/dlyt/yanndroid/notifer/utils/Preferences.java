@@ -15,6 +15,9 @@ import de.dlyt.yanndroid.notifer.R;
 
 public class Preferences {
 
+    private SharedPreferences.OnSharedPreferenceChangeListener mEnabledPackagesListener; //strong reference to avoid garbage collection
+    private SharedPreferences.OnSharedPreferenceChangeListener mServersListener; //strong reference to avoid garbage collection
+
     public interface PreferencesListener<T> {
         void onChange(T value);
     }
@@ -57,10 +60,11 @@ public class Preferences {
 
     public HashMap<String, Integer> getEnabledPackages(PreferencesListener<HashMap<String, Integer>> listener) {
         if (listener != null) {
-            mSharedPreferences.registerOnSharedPreferenceChangeListener((sharedPreferences, key) -> {
+            mEnabledPackagesListener = (sharedPreferences, key) -> {
                 if (ENABLED_PACKAGES_KEY.equals(key))
                     listener.onChange(loadEnabledPackages());
-            });
+            };
+            mSharedPreferences.registerOnSharedPreferenceChangeListener(mEnabledPackagesListener);
         }
         return loadEnabledPackages();
     }
@@ -76,10 +80,11 @@ public class Preferences {
 
     public List<ServerInfo> getServers(PreferencesListener<List<ServerInfo>> listener) {
         if (listener != null) {
-            mSharedPreferences.registerOnSharedPreferenceChangeListener((sharedPreferences, key) -> {
+            mServersListener = (sharedPreferences, key) -> {
                 if (SERVERS_KEY.equals(key))
                     listener.onChange(loadServers());
-            });
+            };
+            mSharedPreferences.registerOnSharedPreferenceChangeListener(mServersListener);
         }
         return loadServers();
     }

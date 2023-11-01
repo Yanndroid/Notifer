@@ -1,5 +1,6 @@
 package de.dlyt.yanndroid.notifer;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -134,8 +135,10 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject body = HttpRequest.makeBody(
                         getString(R.string.app_name), mContext.getPackageName(), 0,
                         System.currentTimeMillis(), false, "", false,
-                        "Test Notification", "This is a test notification", "", "",
-                        "", false, 0, 0);
+                        "Test Notification", "This is a test notification",
+                        "", "", "",
+                        false, 0, 0,
+                        NotificationManager.INTERRUPTION_FILTER_ALL);
 
                 for (Preferences.ServerInfo mServer : mServers) {
                     body.put("color", ColorUtil.convertColor(Color.BLUE, mServer.colorFormat));
