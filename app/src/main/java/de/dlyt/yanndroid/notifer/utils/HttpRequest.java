@@ -29,9 +29,16 @@ public class HttpRequest {
         }).start();
     }
 
-    public static JSONObject makeBody(CharSequence label, String packageName, int id, long time, boolean ongoing, String template, boolean removed, String title, String text, String subText, String titleBig, String textBig, boolean progressIndeterminate, int progressMax, int progress, int dnd) throws JSONException {
+    public static JSONObject makeBody(int color, CharSequence label, String packageName, int id, long time, boolean ongoing, String template, boolean removed, String title, String text, String subText, String titleBig, String textBig, boolean progressIndeterminate, int progressMax, int progress, int dnd) throws JSONException {
         JSONObject body = new JSONObject();
 
+        JSONObject colors = new JSONObject();
+        colors.put("hex", ColorUtil.toHex(color));
+        colors.put("rgb", ColorUtil.toRGB(color));
+        colors.put("hsv", ColorUtil.toHSV(color));
+        colors.put("int", color);
+
+        body.put("color", colors);
         body.put("label", label);
         body.put("package", packageName);
         body.put("id", id);

@@ -29,16 +29,10 @@ public class ServerEditDialog {
         View content = LayoutInflater.from(mContext).inflate(R.layout.dialog_edit_server, null);
         AppCompatEditText serverName = content.findViewById(R.id.server_name);
         AppCompatEditText serverUrl = content.findViewById(R.id.server_url);
-        AppCompatSpinner serverColorFormat = content.findViewById(R.id.server_color_format);
-
-        ArrayAdapter<ColorUtil.ColorFormat> adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_spinner_item, ColorUtil.ColorFormat.values());
-        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        serverColorFormat.setAdapter(adapter);
 
         if (serverInfo != null) {
             serverName.setText(serverInfo.name);
             serverUrl.setText(serverInfo.url);
-            serverColorFormat.setSelection(serverInfo.colorFormat.ordinal());
         }
 
         mDialog = new AlertDialog.Builder(context)
@@ -49,8 +43,7 @@ public class ServerEditDialog {
                     if (serverInfo != null) listener.onReplaced(serverInfo);
                     listener.onAdd(new Preferences.ServerInfo(
                             serverName.getText().toString(),
-                            serverUrl.getText().toString(),
-                            ColorUtil.ColorFormat.values()[serverColorFormat.getSelectedItemPosition()]));
+                            serverUrl.getText().toString()));
                 })
                 .create();
     }

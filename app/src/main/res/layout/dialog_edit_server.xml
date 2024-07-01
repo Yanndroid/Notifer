@@ -20,30 +20,9 @@
             android:id="@+id/server_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
+            android:layout_marginTop="15dp"
             android:hint="@string/server_url_hint"
             android:lines="1" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="@string/server_color_format"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/server_color_format"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
 
     </LinearLayout>
 

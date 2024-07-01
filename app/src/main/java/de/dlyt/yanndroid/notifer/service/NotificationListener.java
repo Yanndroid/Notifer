@@ -14,7 +14,6 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.List;
 
-import de.dlyt.yanndroid.notifer.utils.ColorUtil;
 import de.dlyt.yanndroid.notifer.utils.HttpRequest;
 import de.dlyt.yanndroid.notifer.utils.Preferences;
 
@@ -53,22 +52,18 @@ public class NotificationListener extends NotificationListenerService {
         String packageName = sbn.getPackageName();
         if (mPreferences.isServiceEnabled() && mEnabledPackages.containsKey(packageName)) {
             try {
-                JSONObject body = makeBody(sbn, removed);
+                JSONObject body = makeBody(sbn, mEnabledPackages.get(packageName), removed);
 
                 for (Preferences.ServerInfo mServer : mServers) {
-                    body.put("color", ColorUtil.convertColor(
-                            mEnabledPackages.get(packageName),
-                            mServer.colorFormat));
                     HttpRequest.post(mServer.url, body);
                 }
-
             } catch (JSONException | NullPointerException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private JSONObject makeBody(StatusBarNotification sbn, boolean removed) throws JSONException, NullPointerException {
+    private JSONObject makeBody(StatusBarNotification sbn, int color, boolean removed) throws JSONException {
         Bundle bundle = sbn.getNotification().extras;
         String packageName = sbn.getPackageName();
         CharSequence label;
@@ -81,6 +76,7 @@ public class NotificationListener extends NotificationListenerService {
         }
 
         return HttpRequest.makeBody(
+                color,
                 label,
                 packageName,
                 sbn.getId(),

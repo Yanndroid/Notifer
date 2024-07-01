@@ -13,14 +13,14 @@ println("Locales: " + locales.join(', '))
 
 android {
     namespace 'de.dlyt.yanndroid.notifer'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "de.dlyt.yanndroid.notifer"
         minSdk 26
-        targetSdk 33
-        versionCode 4
-        versionName "1.1.0"
+        targetSdk 34
+        versionCode 5
+        versionName "1.2.0"
 
         resConfigs locales
 
@@ -59,7 +59,7 @@ dependencies {
     implementation 'io.github.oneuiproject.sesl:preference:1.1.0'
     implementation("io.github.oneuiproject.sesl:picker-color:1.1.0")
 
-    implementation 'com.google.code.gson:gson:2.10'
+    implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'androidx.palette:palette:1.0.0'
     implementation 'com.google.android.play:app-update:2.1.0'
 

@@ -25,12 +25,10 @@ public class Preferences {
     public static class ServerInfo implements Comparable<ServerInfo> {
         public String name;
         public String url;
-        public ColorUtil.ColorFormat colorFormat;
 
-        public ServerInfo(String name, String url, ColorUtil.ColorFormat colorFormat) {
+        public ServerInfo(String name, String url) {
             this.name = name;
             this.url = url;
-            this.colorFormat = colorFormat;
         }
 
         @Override

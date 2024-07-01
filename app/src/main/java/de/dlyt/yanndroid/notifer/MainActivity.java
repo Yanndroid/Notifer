@@ -133,15 +133,26 @@ public class MainActivity extends AppCompatActivity {
                 List<Preferences.ServerInfo> mServers = new Preferences(mContext).getServers(null);
 
                 JSONObject body = HttpRequest.makeBody(
-                        getString(R.string.app_name), mContext.getPackageName(), 0,
-                        System.currentTimeMillis(), false, "", false,
-                        "Test Notification", "This is a test notification",
-                        "", "", "",
-                        false, 0, 0,
-                        NotificationManager.INTERRUPTION_FILTER_ALL);
+                        Color.YELLOW,
+                        getString(R.string.app_name),
+                        mContext.getPackageName(),
+                        0,
+                        System.currentTimeMillis(),
+                        false,
+                        null,
+                        false,
+                        "Test Notification",
+                        "This is a test notification",
+                        null,
+                        null,
+                        null,
+                        false,
+                        0,
+                        0,
+                        NotificationManager.INTERRUPTION_FILTER_ALL
+                );
 
                 for (Preferences.ServerInfo mServer : mServers) {
-                    body.put("color", ColorUtil.convertColor(Color.BLUE, mServer.colorFormat));
                     HttpRequest.post(mServer.url, body);
                 }
             } catch (JSONException | NullPointerException e) {
