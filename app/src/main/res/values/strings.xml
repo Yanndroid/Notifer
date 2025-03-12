@@ -21,6 +21,9 @@
     <string name="preference_servers_summary">Http servers to which notifications should be sent.</string>
     <string name="preference_apps_title">Apps</string>
     <string name="preference_apps_summary">Apps whose notifications should be forwarded.</string>
+    <string name="preference_private_mode_key" translatable="false">private_mode</string>
+    <string name="preference_private_mode_title">Private mode</string>
+    <string name="preference_private_mode_summary">Don\'t send content of notification.</string>
     <string name="preference_test_key" translatable="false">test_servers</string>
     <string name="preference_test_title">Test</string>
     <string name="preference_test_summary">Send a test notification to all the servers.</string>

@@ -14,13 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreferenceCompat;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
 
-import de.dlyt.yanndroid.notifer.utils.ColorUtil;
 import de.dlyt.yanndroid.notifer.utils.HttpRequest;
 import de.dlyt.yanndroid.notifer.utils.Preferences;
 import dev.oneuiproject.oneui.layout.ToolbarLayout;
@@ -149,7 +149,8 @@ public class MainActivity extends AppCompatActivity {
                         false,
                         0,
                         0,
-                        NotificationManager.INTERRUPTION_FILTER_ALL
+                        NotificationManager.INTERRUPTION_FILTER_ALL,
+                        ((SwitchPreferenceCompat) findPreference(getString(R.string.preference_private_mode_key))).isChecked()
                 );
 
                 for (Preferences.ServerInfo mServer : mServers) {

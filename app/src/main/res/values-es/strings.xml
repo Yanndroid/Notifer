@@ -1,79 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?><resources>
-      
-  <string name="app_summary">Transferir notificaciones a servidores HTTP.</string>
-      
-  <string name="search">Buscar</string>
-      
-  <string name="no_results">No se han encontrado resultados</string>
-      
-  <!-- Main -->
-      
-  <string name="main_notifications">Notificaciones</string>
-      
-  <string name="main_notification_access">Acceso a notificaciones</string>
-      
-  <string name="main_sounds_and_vibration">Sonidos y vibraciones</string>
-      
-  <!-- Preferences -->
-      
-  <string name="preference_noti_access_tip_title">Acceso a notificaciones</string>
-      
-  <string name="preference_noti_access_tip_summary">Se necesita acceso a la notificación. Haga clic para abrir Configuración.</string>
-      
-  <string name="preference_main_settings_title">Ajustes</string>
-      
-  <string name="preference_servers_title">Servidores</string>
-      
-  <string name="preference_servers_summary">Servidores HTTP a los que se deben enviar las notificaciones.</string>
-      
-  <string name="preference_apps_title">aplicaciones</string>
-      
-  <string name="preference_apps_summary">Aplicaciones cuyas notificaciones deben reenviarse.</string>
-      
-  <string name="preference_test_title">Prueba</string>
-      
-  <string name="preference_test_summary">Envíe una notificación de prueba a todos los servidores.</string>
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
 
-  <!-- App Picker -->
-      
-  <string name="picker_loading_apps">Cargando aplicaciones...</string>
-      
-  <string name="filter">Filtrar</string>
-      
-  <string name="filter_all">Todo</string>
-      
-  <string name="filter_apps">aplicaciones</string>
-      
-  <string name="filter_user">Usuario</string>
-      
-  <string name="filter_system">Sistema</string>
-      
-  <string name="filter_state">Estado</string>
-      
-  <string name="filter_checked">Comprobado</string>
-      
-  <string name="filter_unchecked">Desenfrenado</string>
-      
-  <!-- Server -->
-      
-  <string name="server_add">Agregar servidor</string>
-      
-  <string name="server_edit">Editar servidor</string>
-      
-  <string name="server_name_hint">Nombre del servidor</string>
-      
-  <string name="server_url_hint">URL del servidor</string>
-      
-  <string name="server_color_format">formato de color</string>
-      
-  <string name="server_delete">Eliminar servidor</string>
-      
-  <string name="delete">Borrar</string>
-      
-  <!-- About -->
-      
-  <string name="about_github">GitHub</string>
-      
-  <string name="about_sponsor">Patrocinador</string>
-  
+    <string name="app_summary">Transferir notificaciones a servidores HTTP.</string>
+
+    <string name="search">Buscar</string>
+
+    <string name="no_results">No se han encontrado resultados</string>
+
+    <!-- Main -->
+
+    <string name="main_notifications">Notificaciones</string>
+
+    <string name="main_notification_access">Acceso a notificaciones</string>
+
+    <string name="main_sounds_and_vibration">Sonidos y vibraciones</string>
+
+    <!-- Preferences -->
+
+    <string name="preference_noti_access_tip_title">Acceso a notificaciones</string>
+
+    <string name="preference_noti_access_tip_summary">Se necesita acceso a la notificación. Haga clic para abrir Configuración.</string>
+
+    <string name="preference_main_settings_title">Ajustes</string>
+
+    <string name="preference_servers_title">Servidores</string>
+
+    <string name="preference_servers_summary">Servidores HTTP a los que se deben enviar las notificaciones.</string>
+
+    <string name="preference_apps_title">aplicaciones</string>
+
+    <string name="preference_apps_summary">Aplicaciones cuyas notificaciones deben reenviarse.</string>
+
+    <string name="preference_private_mode_title">Modo privado</string>
+
+    <string name="preference_private_mode_summary">No enviar el contenido de la notificación.</string>
+
+    <string name="preference_test_title">Prueba</string>
+
+    <string name="preference_test_summary">Envíe una notificación de prueba a todos los servidores.</string>
+
+    <!-- App Picker -->
+
+    <string name="picker_loading_apps">Cargando aplicaciones...</string>
+
+    <string name="filter">Filtrar</string>
+
+    <string name="filter_all">Todo</string>
+
+    <string name="filter_apps">aplicaciones</string>
+
+    <string name="filter_user">Usuario</string>
+
+    <string name="filter_system">Sistema</string>
+
+    <string name="filter_state">Estado</string>
+
+    <string name="filter_checked">Comprobado</string>
+
+    <string name="filter_unchecked">Desenfrenado</string>
+
+    <!-- Server -->
+
+    <string name="server_add">Agregar servidor</string>
+
+    <string name="server_edit">Editar servidor</string>
+
+    <string name="server_name_hint">Nombre del servidor</string>
+
+    <string name="server_url_hint">URL del servidor</string>
+
+    <string name="server_color_format">formato de color</string>
+
+    <string name="server_delete">Eliminar servidor</string>
+
+    <string name="delete">Borrar</string>
+
+    <!-- About -->
+
+    <string name="about_github">GitHub</string>
+
+    <string name="about_sponsor">Patrocinador</string>
+
 </resources>

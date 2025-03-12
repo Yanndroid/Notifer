@@ -1,79 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?><resources>
-      
-  <string name="app_summary">โอนการแจ้งเตือนไปยังเซิร์ฟเวอร์ HTTP</string>
-      
-  <string name="search">ค้นหา</string>
-      
-  <string name="no_results">ไม่พบผลลัพธ์</string>
-      
-  <!-- Main -->
-      
-  <string name="main_notifications">การแจ้งเตือน</string>
-      
-  <string name="main_notification_access">การเข้าถึงการแจ้งเตือน</string>
-      
-  <string name="main_sounds_and_vibration">เสียงและการสั่นสะเทือน</string>
-      
-  <!-- Preferences -->
-      
-  <string name="preference_noti_access_tip_title">การเข้าถึงการแจ้งเตือน</string>
-      
-  <string name="preference_noti_access_tip_summary">จำเป็นต้องเข้าถึงการแจ้งเตือน คลิกเพื่อเปิดการตั้งค่า</string>
-      
-  <string name="preference_main_settings_title">การตั้งค่า</string>
-      
-  <string name="preference_servers_title">เซิร์ฟเวอร์</string>
-      
-  <string name="preference_servers_summary">เซิร์ฟเวอร์ Http ที่ควรส่งการแจ้งเตือน</string>
-      
-  <string name="preference_apps_title">แอพ</string>
-      
-  <string name="preference_apps_summary">แอปที่ควรส่งต่อการแจ้งเตือน</string>
-      
-  <string name="preference_test_title">ทดสอบ</string>
-      
-  <string name="preference_test_summary">ส่งการแจ้งเตือนการทดสอบไปยังเซิร์ฟเวอร์ทั้งหมด</string>
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
 
-  <!-- App Picker -->
-      
-  <string name="picker_loading_apps">กำลังโหลดแอป...</string>
-      
-  <string name="filter">กรอง</string>
-      
-  <string name="filter_all">ทั้งหมด</string>
-      
-  <string name="filter_apps">แอพ</string>
-      
-  <string name="filter_user">ผู้ใช้</string>
-      
-  <string name="filter_system">ระบบ</string>
-      
-  <string name="filter_state">สถานะ</string>
-      
-  <string name="filter_checked">ตรวจสอบแล้ว</string>
-      
-  <string name="filter_unchecked">ยกเลิกการเลือก</string>
-      
-  <!-- Server -->
-      
-  <string name="server_add">เพิ่มเซิร์ฟเวอร์</string>
-      
-  <string name="server_edit">แก้ไขเซิร์ฟเวอร์</string>
-      
-  <string name="server_name_hint">ชื่อเซิร์ฟเวอร์</string>
-      
-  <string name="server_url_hint">URL ของเซิร์ฟเวอร์</string>
-      
-  <string name="server_color_format">รูปแบบสี</string>
-      
-  <string name="server_delete">ลบเซิร์ฟเวอร์</string>
-      
-  <string name="delete">ลบ</string>
-      
-  <!-- About -->
-      
-  <string name="about_github">GitHub</string>
-      
-  <string name="about_sponsor">สปอนเซอร์</string>
-  
+    <string name="app_summary">โอนการแจ้งเตือนไปยังเซิร์ฟเวอร์ HTTP</string>
+
+    <string name="search">ค้นหา</string>
+
+    <string name="no_results">ไม่พบผลลัพธ์</string>
+
+    <!-- Main -->
+
+    <string name="main_notifications">การแจ้งเตือน</string>
+
+    <string name="main_notification_access">การเข้าถึงการแจ้งเตือน</string>
+
+    <string name="main_sounds_and_vibration">เสียงและการสั่นสะเทือน</string>
+
+    <!-- Preferences -->
+
+    <string name="preference_noti_access_tip_title">การเข้าถึงการแจ้งเตือน</string>
+
+    <string name="preference_noti_access_tip_summary">จำเป็นต้องเข้าถึงการแจ้งเตือน คลิกเพื่อเปิดการตั้งค่า</string>
+
+    <string name="preference_main_settings_title">การตั้งค่า</string>
+
+    <string name="preference_servers_title">เซิร์ฟเวอร์</string>
+
+    <string name="preference_servers_summary">เซิร์ฟเวอร์ Http ที่ควรส่งการแจ้งเตือน</string>
+
+    <string name="preference_apps_title">แอพ</string>
+
+    <string name="preference_apps_summary">แอปที่ควรส่งต่อการแจ้งเตือน</string>
+
+    <string name="preference_private_mode_title">โหมดส่วนตัว</string>
+
+    <string name="preference_private_mode_summary">ไม่ส่งเนื้อหาการแจ้งเตือน</string>
+
+    <string name="preference_test_title">ทดสอบ</string>
+
+    <string name="preference_test_summary">ส่งการแจ้งเตือนการทดสอบไปยังเซิร์ฟเวอร์ทั้งหมด</string>
+
+    <!-- App Picker -->
+
+    <string name="picker_loading_apps">กำลังโหลดแอป...</string>
+
+    <string name="filter">กรอง</string>
+
+    <string name="filter_all">ทั้งหมด</string>
+
+    <string name="filter_apps">แอพ</string>
+
+    <string name="filter_user">ผู้ใช้</string>
+
+    <string name="filter_system">ระบบ</string>
+
+    <string name="filter_state">สถานะ</string>
+
+    <string name="filter_checked">ตรวจสอบแล้ว</string>
+
+    <string name="filter_unchecked">ยกเลิกการเลือก</string>
+
+    <!-- Server -->
+
+    <string name="server_add">เพิ่มเซิร์ฟเวอร์</string>
+
+    <string name="server_edit">แก้ไขเซิร์ฟเวอร์</string>
+
+    <string name="server_name_hint">ชื่อเซิร์ฟเวอร์</string>
+
+    <string name="server_url_hint">URL ของเซิร์ฟเวอร์</string>
+
+    <string name="server_color_format">รูปแบบสี</string>
+
+    <string name="server_delete">ลบเซิร์ฟเวอร์</string>
+
+    <string name="delete">ลบ</string>
+
+    <!-- About -->
+
+    <string name="about_github">GitHub</string>
+
+    <string name="about_sponsor">สปอนเซอร์</string>
+
 </resources>

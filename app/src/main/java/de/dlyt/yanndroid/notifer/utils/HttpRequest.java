@@ -29,7 +29,7 @@ public class HttpRequest {
         }).start();
     }
 
-    public static JSONObject makeBody(int color, CharSequence label, String packageName, int id, long time, boolean ongoing, String template, boolean removed, String title, String text, String subText, String titleBig, String textBig, boolean progressIndeterminate, int progressMax, int progress, int dnd) throws JSONException {
+    public static JSONObject makeBody(int color, CharSequence label, String packageName, int id, long time, boolean ongoing, String template, boolean removed, String title, String text, String subText, String titleBig, String textBig, boolean progressIndeterminate, int progressMax, int progress, int dnd, boolean privateMode) throws JSONException {
         JSONObject body = new JSONObject();
 
         JSONObject colors = new JSONObject();
@@ -39,22 +39,26 @@ public class HttpRequest {
         colors.put("int", color);
 
         body.put("color", colors);
-        body.put("label", label);
-        body.put("package", packageName);
+
         body.put("id", id);
         body.put("time", time);
         body.put("ongoing", ongoing);
-        body.put("template", template);
         body.put("removed", removed);
-        body.put("title", title);
-        body.put("text", text);
-        body.put("sub_text", subText);
-        body.put("title_big", titleBig);
-        body.put("text_big", textBig);
         body.put("progress_indeterminate", progressIndeterminate);
         body.put("progress_max", progressMax);
         body.put("progress", progress);
         body.put("dnd", dnd);
+
+        if (!privateMode) {
+            body.put("label", label);
+            body.put("package", packageName);
+            body.put("template", template);
+            body.put("title", title);
+            body.put("text", text);
+            body.put("sub_text", subText);
+            body.put("title_big", titleBig);
+            body.put("text_big", textBig);
+        }
 
         return body;
     }

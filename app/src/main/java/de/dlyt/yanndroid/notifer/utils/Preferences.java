@@ -17,6 +17,7 @@ public class Preferences {
 
     private SharedPreferences.OnSharedPreferenceChangeListener mEnabledPackagesListener; //strong reference to avoid garbage collection
     private SharedPreferences.OnSharedPreferenceChangeListener mServersListener; //strong reference to avoid garbage collection
+    private SharedPreferences.OnSharedPreferenceChangeListener mPrivateModeListener; //strong reference to avoid garbage collection
 
     public interface PreferencesListener<T> {
         void onChange(T value);
@@ -39,6 +40,7 @@ public class Preferences {
 
     private static final String ENABLED_PACKAGES_KEY = "enabled_packages";
     private static final String SERVERS_KEY = "servers";
+    private static final String PRIVATE_MODE_KEY = "private_mode";
 
     private final Context mContext;
     private final SharedPreferences mSharedPreferences;
@@ -94,6 +96,25 @@ public class Preferences {
 
     public void setServers(List<ServerInfo> servers) {
         mSharedPreferences.edit().putString(SERVERS_KEY, new Gson().toJson(servers)).apply();
+    }
+
+    public boolean getPrivateMode(PreferencesListener<Boolean> listener) {
+        if (listener != null) {
+            mPrivateModeListener = (sharedPreferences, key) -> {
+                if (PRIVATE_MODE_KEY.equals(key))
+                    listener.onChange(loadPrivateMode());
+            };
+            mSharedPreferences.registerOnSharedPreferenceChangeListener(mPrivateModeListener);
+        }
+        return loadPrivateMode();
+    }
+
+    private boolean loadPrivateMode() {
+        return mSharedPreferences.getBoolean(PRIVATE_MODE_KEY, true);
+    }
+
+    public void setPrivateMode(boolean enabled) {
+        mSharedPreferences.edit().putBoolean(PRIVATE_MODE_KEY, enabled).apply();
     }
 
 }

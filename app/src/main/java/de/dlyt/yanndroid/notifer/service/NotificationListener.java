@@ -22,6 +22,7 @@ public class NotificationListener extends NotificationListenerService {
     private Preferences mPreferences;
     private HashMap<String, Integer> mEnabledPackages;
     private List<Preferences.ServerInfo> mServers;
+    private Boolean mPrivateMode;
 
     private NotificationManager mNotificationManager;
 
@@ -32,6 +33,7 @@ public class NotificationListener extends NotificationListenerService {
 
         mEnabledPackages = mPreferences.getEnabledPackages(enabledPackages -> mEnabledPackages = enabledPackages);
         mServers = mPreferences.getServers(servers -> mServers = servers);
+        mPrivateMode = mPreferences.getPrivateMode(privateMode -> mPrivateMode = privateMode);
 
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
     }
@@ -92,7 +94,8 @@ public class NotificationListener extends NotificationListenerService {
                 bundle.getBoolean("android.progressIndeterminate"),
                 bundle.getInt("android.progressMax"),
                 bundle.getInt("android.progress"),
-                mNotificationManager.getCurrentInterruptionFilter()
+                mNotificationManager.getCurrentInterruptionFilter(),
+                mPrivateMode
         );
     }
 
